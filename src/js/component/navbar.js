@@ -18,7 +18,10 @@ export const Navbar = () => {
 
 					</Link>
 				</div>
-				<div className="ml-auto mx-0 p-0">
+				<div className="ml-auto mx-0 p-0 d-flex">
+
+					<Link to="/favorites" className="btn btn-warning mx-2">Favorites</Link>
+
 					<div className="dropdown">
 						<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites {store.favorites.length}
@@ -32,11 +35,11 @@ export const Navbar = () => {
 								store.favorites.map((item, index) => (
 									<li key={index} className="d-flex justify-content-between mx-2">
 										<a >
-											{item}
+											{item.name}
 										</a>
 										<i className="btn fa-solid fa-trash p-0"
 											onClick={() => {
-												actions.deleteFavoriteCharacter(item)
+												actions.deleteFavoriteCharacter(item.name, item.type);
 											}}
 
 										>

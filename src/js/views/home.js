@@ -28,16 +28,16 @@ export const Home = () => {
 
 				</div>
 				<div className=" container overflow-auto d-flex flex-noweap mx-0 px-0" style={{ overflow: "scroll" }}>
-					{store.peopleList.map((item) => {
+					{store.peopleList.map((item, index) => {
 						return (
 							<CardPeople
-								key={item.uid}
-								people={item?.properties.name}
+								key={`people-${item.uid}-${index}`}
+								people={{ ...item?.properties, uid: item?.uid, type: "characters" }}
 
-								id={item.uid}
-								gender={item?.properties.gender}
-								hair={item.properties.hair_color}
-								eye={item.properties.eye_color}
+							// name={item?.properties.name}
+							// gender={item?.properties.gender}
+							// hair={item.properties.hair_color}
+							// eye={item.properties.eye_color}
 							/>
 						)
 					}
@@ -57,14 +57,16 @@ export const Home = () => {
 
 
 				<div className=" container overflow-auto d-flex flex-noweap mx-0 px-0" style={{ overflow: "scroll" }}>
-					{store.planetList.map((item) => {
+					{store.planetList.map((item, index) => {
 						return (
 							<CardPlanets
-								key={item.uid}
-								name_planet={item?.properties.name}
-								id={item.uid}
-								population={item?.properties.population}
-								terrain={item.properties.terrain}
+								key={`planets-${item.uid}-${index}`}
+								planets={{ ...item?.properties, uid: item?.uid, type: "planets" }}
+
+							// name_planet={item?.properties.name}
+							// id={item.uid}
+							// population={item?.properties.population}
+							// terrain={item.properties.terrain}
 							/>
 						)
 					}
@@ -84,14 +86,16 @@ export const Home = () => {
 
 
 				<div className=" container overflow-auto d-flex flex-noweap mx-0 px-0" style={{ overflow: "scroll" }}>
-					{store.vehicleList.map((item) => {
+					{store.vehicleList.map((item, index) => {
 						return (
 							<CardVehicle
-								key={item?.uid}
-								vehicle={item?.properties.name}
-								id={item?.uid}
-								vehicle_class={item?.properties.vehicle_class}
-								passengers={item?.properties.passengers}
+								key={`vehicles-${item.uid}-${index}`}
+								vehicle={{ ...item?.properties, uid: item?.uid, type: "vehicles" }}
+
+							// vehicle={item?.properties.name}
+							// id={item?.uid}
+							// vehicle_class={item?.properties.vehicle_class}
+							// passengers={item?.properties.passengers}
 							/>
 						)
 					}

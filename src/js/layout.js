@@ -12,6 +12,7 @@ import { Footer } from "./component/footer";
 import DetailCard from "./views/detailCard";
 import DetailPlanet from "./views/detailPlanet";
 import DetailVehicle from "./views/detailVehicle";
+import { Favorites } from "./views/favorites";
 
 //create your first component
 const Layout = () => {
@@ -26,6 +27,7 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
+						<Route path="/favorites" element={<Favorites />} />
 						<Route path="/detail-people/:people_id" element={<DetailCard />} />
 						<Route path="/detail-planet/:planet_id" element={<DetailPlanet />} />
 						<Route path="/detail-vehicle/:vehicle_id" element={<DetailVehicle />} />

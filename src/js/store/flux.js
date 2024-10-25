@@ -71,18 +71,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 
-			addFavoriteCharacter: (characterName) => {
+			addFavoriteCharacter: (character) => {
 				const store = getStore()
-				console.info(characterName)
+				console.info(character)
 
-				if (!store.favorites.includes(characterName)) {
-					setStore({ favorites: [...store.favorites, characterName] })
+				if (!store.favorites.some(item => item.name === character.name && item.type === character.type)) {
+					setStore({ favorites: [...store.favorites, character] })
 				}
 			},
 
-			deleteFavoriteCharacter: (characterName) => {
+			deleteFavoriteCharacter: (characterID) => {
 				const store = getStore();
-				setStore({ favorites: store.favorites.filter(name => name != characterName) })
+				setStore({ favorites: store.favorites.filter(item => item.name !== characterID) });
 			}
 
 		}
